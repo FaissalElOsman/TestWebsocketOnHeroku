@@ -1,13 +1,21 @@
 <html>
-  <body>
+
+<body>
     <p id='server-time'></p>
+    <input id="inputT">
+    <button type="button" onclick="selectFunction();">OK</button>
     <script>
-      var HOST = location.origin.replace(/^http/, 'ws')
-      var ws = new WebSocket(HOST);
-      var el = document.getElementById('server-time');
-      ws.onmessage = function (event) {
-        el.innerHTML = 'Server time: ' + event.data;
-      };
+        function selectFunction(obj) {
+            var inputT = document.getElementById('input');
+            console.log("inputT.text = " + inputT.text);
+        }
+        var HOST = location.origin.replace(/^http/, 'ws')
+        var ws = new WebSocket(HOST);
+        var el = document.getElementById('server-time');
+        ws.onmessage = function (event) {
+            el.innerHTML = 'Server time: ' + event.data;
+        };
     </script>
-  </body>
+</body>
+
 </html>
